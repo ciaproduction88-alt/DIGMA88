@@ -9,9 +9,9 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(270deg, #0050e9, #0614b2, #000052, #fb0202);
+    background: linear-gradient(270deg, #1a0033, #000000, #330000, #660033);
     background-size: 800% 800%;
-    animation: gradientBG 15s ease infinite alternate;
+    animation: gradientBG 20s ease infinite alternate;
     color: white;
     text-align: center;
     min-height: 100vh;
@@ -27,7 +27,7 @@
   }
 
   .container {
-    max-width: 420px;
+    max-width: 450px;
     margin: 0 auto;
     padding: 20px 15px;
     position: relative;
@@ -37,115 +37,133 @@
   /* LOGO UTAMA */
   .logo {
     width: 100%;
-    max-width: 200px;
+    max-width: 220px;
     height: auto;
     display: block;
     margin: 20px auto;
     object-fit: contain;
+    filter: drop-shadow(0 0 12px gold);
   }
 
-  /* AVATAR LINGKARAN RESPONSIVE */
+  /* AVATAR LINGKARAN */
   .logo-container {
     display: flex;
     justify-content: center;
     margin-bottom: 15px;
   }
   .avatar {
-    width: 80px;
-    height: 80px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    border: 3px solid gold;
+    box-shadow: 0 0 15px rgba(255,215,0,0.8);
   }
   .avatar img {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* menyesuaikan ukuran lingkaran */
-    border-radius: 50%; /* tetap berbentuk lingkaran */
-    transition: transform 0.3s ease;
+    object-fit: cover;
+    border-radius: 50%;
+    transition: transform 0.4s ease;
   }
   .avatar img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(3deg);
   }
 
-  h1 { font-size: 22px; margin: 10px 0 5px; font-weight: bold; letter-spacing: 1px; }
-  h2 { font-size: 16px; font-weight: 400; margin-bottom: 25px; opacity: 0.9; }
+  /* JUDUL */
+  h1 { 
+    font-size: 24px; 
+    margin: 10px 0 5px; 
+    font-weight: bold; 
+    letter-spacing: 1.5px; 
+    background: linear-gradient(90deg, gold, #ff66ff, gold);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: shine 4s linear infinite;
+  }
+  h2 { 
+    font-size: 16px; 
+    font-weight: 400; 
+    margin-bottom: 25px; 
+    opacity: 0.9; 
+  }
+  @keyframes shine {
+    from { background-position: 0%; }
+    to { background-position: 200%; }
+  }
 
-  /* TOMBOL GLASSMORPHISM DENGAN PULSE */
+  /* TOMBOL GLASSMORPHISM */
   .btn {
     display: flex; 
     align-items: center; 
     justify-content: space-between;
     width: 100%;
-    background: rgba(255, 255, 255, 0.1); 
+    background: rgba(255, 255, 255, 0.08); 
     color: white;
-    border-radius: 12px; 
+    border-radius: 14px; 
     text-decoration: none; 
     font-size: 16px;
-    padding: 12px 18px; 
-    margin: 12px 0; 
-    backdrop-filter: blur(6px);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); 
-    transition: all 0.3s ease-in-out;
+    font-weight: bold;
+    padding: 14px 20px; 
+    margin: 14px 0; 
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255, 215, 0, 0.5);
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+    transition: all 0.35s ease-in-out;
     cursor: pointer;
-    animation: pulse 2s infinite;
+    position: relative;
+    overflow: hidden;
   }
-  .btn {
-  display: flex; 
-  align-items: center; 
-  justify-content: space-between;
-  width: 100%;
-  max-width: 100%;
-  background: rgba(255, 255, 255, 0.1); 
-  color: white;
-  border-radius: 12px; 
-  text-decoration: none; 
-  font-size: 16px;
-  padding: 12px 18px; 
-  margin: 12px 0; 
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.2); 
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
-  animation: pulse 2s infinite;
-}
 
-/* Efek hover */
-.btn:hover {
-  transform: scale(1.05); /* zoom in */
-  box-shadow: 0 0 18px rgba(255,255,255,0.6); /* shadow lebih kuat */
-  background: rgba(255,255,255,0.2); /* lebih terang */
-}
-  @keyframes pulse {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.03); }
-    100% { transform: scale(1); }
+  /* Efek hover */
+  .btn::before {
+    content: "";
+    position: absolute;
+    top: 0; left: -100%;
+    width: 100%; height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: all 0.5s;
+  }
+  .btn:hover::before { left: 100%; }
+  .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255,215,0,0.8);
   }
 
   .btn-content { display: flex; align-items: center; }
   .btn-icon { width: 28px; height: 28px; margin-right: 12px; object-fit: contain; }
   .btn img.share { width: 20px; height: 20px; opacity: 0.7; }
 
-  /* SALJU HALUS */
+  /* SALJU */
   .snow { position: absolute; top: -10px; width: 4px; height: 4px; background: white; border-radius: 50%; opacity: 0.7; pointer-events: none; animation: fall linear infinite; }
   @keyframes fall { 0% { transform: translateY(0) translateX(0); opacity: 0.7; } 100% { transform: translateY(100vh) translateX(var(--x-move)); opacity: 0; } }
 
   /* FOOTER */
-  footer { text-align: center; font-size: 12px; padding: 15px 10px; opacity: 0.9; display: flex; flex-direction: column; align-items: center; gap: 8px; }
-  footer .social-icons { display: flex; gap: 12px; }
-  footer .social-icons a img { width: 24px; height: 24px; transition: transform 0.3s ease, opacity 0.3s ease; }
-  footer .social-icons a:hover img { transform: scale(1.2); opacity: 1; }
+  footer { 
+    text-align: center; 
+    font-size: 12px; 
+    padding: 20px 10px; 
+    opacity: 0.9; 
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+    gap: 12px;
+    border-top: 1px solid rgba(255,215,0,0.4);
+    margin-top: 20px;
+  }
+  footer .social-icons { display: flex; gap: 14px; }
+  footer .social-icons a img { width: 26px; height: 26px; transition: transform 0.3s ease, opacity 0.3s ease; filter: drop-shadow(0 0 5px gold); }
+  footer .social-icons a:hover img { transform: scale(1.3); opacity: 1; }
   footer .footer-text { font-size: 11px; opacity: 0.7; }
 
   @media (max-width: 480px) {
     h1 { font-size: 20px; }
     h2 { font-size: 14px; }
-    .avatar { width: 60px; height: 60px; }
+    .avatar { width: 65px; height: 65px; }
     .btn { font-size: 14px; padding: 10px 14px; }
     .btn-icon { width: 24px; height: 24px; }
     footer .social-icons a img { width: 20px; height: 20px; }
@@ -153,15 +171,16 @@
 </style>
 </head>
 <body>
+  
 <div class="container">
   <!-- AVATAR -->
   <div class="logo-container">
     <div class="avatar">
-      <img class="lozad" data-src="https://cdn-b.heylink.me/media/users/avatars/7a5e0b832707440fa765b74dd3b10a11.webp" alt="Avatar">
+      <img class="lozad" data-src="file:///C:/Users/ADMIN/Downloads/01fa0eed-1128-408d-a76c-c898bd2b46fe_team.webp" alt="Avatar">
     </div>
   </div>
 
-  <!-- LOGO UTAMA -->
+  <!-- LOGO -->
   <img src="file:///C:/Users/ADMIN/Downloads/logo.webp" alt="Logo OPELGAMING" class="logo">
 
   <!-- JUDUL -->
@@ -169,7 +188,7 @@
   <h2>SLOT – TOGEL – CASINO</h2>
 
   <!-- TOMBOL -->
-  <a href="https://transaksiok.com/register?referral_code=digma88" class="btn">
+  <a href="https://opelmerdeka.com/referral/digma88" class="btn">
     <div class="btn-content">
       <img src="https://img.icons8.com/ios-filled/50/00ffff/link.png" class="btn-icon" alt="Icon Link">
       LINK LOGIN ALTERNATIF
@@ -177,15 +196,15 @@
     <img src="https://img.icons8.com/ios-glyphs/30/ffffff/share.png" class="share" alt="Share">
   </a>
 
-  <a href="https://ciacepat.com/register?referral_code=digma88" class="btn">
+  <a href="https://opelmerdeka.com/referral/digma88" class="btn">
     <div class="btn-content">
-      <img src="https://via.placeholder.com/30x30.png?text=C" class="btn-icon" alt="Icon C">
-      DAFTAR CIATOTO
+      <img src="https://img.icons8.com/ios-filled/50/ffcc00/add-user-male.png" class="btn-icon" alt="Icon Daftar">
+      DAFTAR OPELGAMING
     </div>
     <img src="https://img.icons8.com/ios-glyphs/30/ffffff/share.png" class="share" alt="Share">
   </a>
 
-  <a href="https://cia2025.com/register?referral_code=digma88" class="btn">
+  <a href="https://opelmerdeka.com/referral/digma88" class="btn">
     <div class="btn-content">
       <img src="https://img.icons8.com/ios-filled/50/ffd700/key.png" class="btn-icon" alt="Icon Key">
       LINK LOGIN ANTI RUNGKAD
@@ -221,8 +240,8 @@
   });
   observer.observe();
 
-  // Salju halus
-  const snowCount = 20;
+  // Efek salju
+  const snowCount = 25;
   for (let i = 0; i < snowCount; i++) {
     const snow = document.createElement('span');
     snow.className = 'snow';
