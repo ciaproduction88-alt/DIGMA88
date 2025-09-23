@@ -9,10 +9,10 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body {
     font-family: 'Segoe UI', sans-serif;
-    background: linear-gradient(270deg, #1a0033, #000000, #330000, #660033);
+    background: linear-gradient(270deg, #20767c, #000000, #490e4e, #000000);
     background-size: 800% 800%;
     animation: gradientBG 20s ease infinite alternate;
-    color: white;
+    color: rgb(255, 255, 255);
     text-align: center;
     min-height: 100vh;
     overflow-x: hidden;
@@ -42,7 +42,7 @@
     display: block;
     margin: 20px auto;
     object-fit: contain;
-    filter: drop-shadow(0 0 12px gold);
+    filter: drop-shadow(0 0 12px rgb(126, 209, 158));
   }
 
   /* AVATAR LINGKARAN */
@@ -60,8 +60,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 3px solid gold;
-    box-shadow: 0 0 15px rgba(255,215,0,0.8);
+    border: 3px solid rgb(10, 234, 241);
+    box-shadow: 0 0 15px rgba(0, 255, 234, 0.8);
   }
   .avatar img {
     width: 100%;
@@ -80,7 +80,7 @@
     margin: 10px 0 5px; 
     font-weight: bold; 
     letter-spacing: 1.5px; 
-    background: linear-gradient(90deg, gold, #ff66ff, gold);
+    background: linear-gradient(90deg, rgb(12, 229, 236), #ff66ff, rgb(17, 216, 189));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: shine 4s linear infinite;
@@ -111,8 +111,8 @@
     padding: 14px 20px; 
     margin: 14px 0; 
     backdrop-filter: blur(8px);
-    border: 1px solid rgba(255, 215, 0, 0.5);
-    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); 
+    border: 1px solid rgba(32, 235, 224, 0.5);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.3); 
     transition: all 0.35s ease-in-out;
     cursor: pointer;
     position: relative;
@@ -131,7 +131,7 @@
   .btn:hover::before { left: 100%; }
   .btn:hover {
     transform: scale(1.05);
-    box-shadow: 0 0 20px rgba(255,215,0,0.8);
+    box-shadow: 0 0 20px rgba(243, 17, 175, 0.8);
   }
 
   .btn-content { display: flex; align-items: center; }
@@ -139,7 +139,7 @@
   .btn img.share { width: 20px; height: 20px; opacity: 0.7; }
 
   /* SALJU */
-  .snow { position: absolute; top: -10px; width: 4px; height: 4px; background: white; border-radius: 50%; opacity: 0.7; pointer-events: none; animation: fall linear infinite; }
+  .snow { position: absolute; top: -10px; width: 4px; height: 4px; background: rgb(6, 253, 253); border-radius: 50%; opacity: 0.7; pointer-events: none; animation: fall linear infinite; }
   @keyframes fall { 0% { transform: translateY(0) translateX(0); opacity: 0.7; } 100% { transform: translateY(100vh) translateX(var(--x-move)); opacity: 0; } }
 
   /* FOOTER */
@@ -152,11 +152,11 @@
     flex-direction: column; 
     align-items: center; 
     gap: 12px;
-    border-top: 1px solid rgba(255,215,0,0.4);
+    border-top: 1px solid rgba(5, 224, 240, 0.4);
     margin-top: 20px;
   }
   footer .social-icons { display: flex; gap: 14px; }
-  footer .social-icons a img { width: 26px; height: 26px; transition: transform 0.3s ease, opacity 0.3s ease; filter: drop-shadow(0 0 5px gold); }
+  footer .social-icons a img { width: 26px; height: 26px; transition: transform 0.3s ease, opacity 0.3s ease; filter: drop-shadow(0 0 5px rgb(13, 223, 170)); }
   footer .social-icons a:hover img { transform: scale(1.3); opacity: 1; }
   footer .footer-text { font-size: 11px; opacity: 0.7; }
 
